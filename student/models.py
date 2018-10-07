@@ -20,8 +20,13 @@ class Marks(models.Model):
 		verbose_name_plural = "Marks"
 	
 	USN = models.OneToOneField(Students, on_delete=models.CASCADE)
-	sub1 = models.IntegerField(null=True)
-	sub2 = models.IntegerField(null=True)
+	MAT = models.IntegerField(null=True)
+	CHE = models.IntegerField(null=True)
+	PCD = models.IntegerField(null=True)
+	CED = models.IntegerField(null=True)
+	ELN = models.IntegerField(null=True)
+	CIV = models.IntegerField(null=True)
+
 
 	def __str__(self):
 		return str(self.USN)
