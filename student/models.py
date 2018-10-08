@@ -8,8 +8,8 @@ class Students(models.Model):
 	USN = models.IntegerField(primary_key=True)
 	Name = models.CharField(max_length=20)
 	Department = models.CharField(max_length=4)
-	email = models.EmailField(null=True)
-	phone = models.CharField(max_length = 15,null=True)
+	Email = models.EmailField(null=True)
+	Phone = models.CharField(max_length = 15,null=True)
 
 	def __str__(self):
 		return str(self.USN)
