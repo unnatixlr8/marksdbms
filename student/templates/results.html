@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Results</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Search Student's Result</h1>
+		<form method="post" action="{% url 'results' %}">
+			{% csrf_token %}
+			<div class ="form-group">
+				<div class="col-lg-5">
+					<input type="text" name="srh" class="form-control" placeholder="Enter USN">
+				</div>
+				<label class="col-lg-2">
+					<button type="submit" class="btn btn-danger">Search</button>
+				</label>
+			</div>
+
+		</form><br><br>
+		
+	<div>
+		{% if messages %}
+		<ul class="messages">
+			{% for k in messages %}
+			<li style="color: red">{{ k }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</div><br>
+	<div style="color:blue">
+		{% if sr %}
+			{% for k in sr %}
+			<table border="0px" width="300px">
+				<tr>
+					<td>Name : </td>
+					<td>{{ k.Name }}</td>
+				</tr>
+				<tr>
+					<td>USN : </td>
+					<td>{{ k.USN }}</td>
+				</tr>
+				<tr>
+					<td>Department : </td>
+					<td>{{ k.Department }}</td>
+				</tr>
+				<tr>
+					<td>email : </td>
+					<td>{{ k.Email }}</td>
+				</tr>
+				<tr>
+					<td>Phone : </td>
+					<td>{{ k.Phone }}</td>
+				</tr>
+			</table>
+			<hr>
+			{% endfor %}
+		{% endif %}
+	</div>
+	
+
+	</div>
+
+</body>
+</html>
