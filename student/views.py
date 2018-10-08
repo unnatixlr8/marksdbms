@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.db.models import Q
@@ -18,7 +18,7 @@ def results(request):
 			else:
 				messages.error(request,'no result found')
 		else:
-			return HttpResponseRedirect('/results/')
+			return HttpResponseRedirect(reverse('results'))
 
 	return render(request, 'results.html')
 
