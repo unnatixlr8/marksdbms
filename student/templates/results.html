@@ -53,10 +53,44 @@
 					<td>Phone : </td>
 					<td>{{ k.Phone }}</td>
 				</tr>
-			</table>
-			<hr>
-			{% endfor %}
+				</table>
+				{% endfor %}
 		{% endif %}
+			<br>
+			<br>
+			<hr>
+			{% if sr %}
+				{% for m in mr %}
+			<table border="2px" width="500px">
+				<tr>
+					<td>Engineering Mathematics 1 : </td>
+					<td>{{ m.MAT}} </td>
+				</tr>
+				<tr>
+					<td> Engineering Chemistry : </td>
+					<td>{{ m.CHE}} </td>
+				</tr>
+				<tr>
+					<td>Programming in C : </td>
+					<td>{{ m.PCD}} </td>
+				</tr>
+				<tr>
+					<td>Computer Aided Design : </td>
+					<td>{{ m.CED}} </td>
+				</tr>
+				<tr>
+					<td>Basic Electronics : </td>
+					<td>{{ m.ELN}} </td>
+				</tr>
+				<tr>
+					<td>Environmental Studies : </td>
+					<td>{{ m.CIV}} </td>
+				</tr>
+					
+			</table>
+				{% endfor %}
+			{% endif %}
+			
 	</div>
 	
 
