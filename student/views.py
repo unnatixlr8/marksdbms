@@ -12,9 +12,9 @@ def results(request):
 
 		if srch:
 			match = Students.objects.filter(Q(USN__icontains=srch))
-			#matchm = Marks.objects.filter(Q(USN__icontains=srch))
+			matchm = Marks.objects.filter(Q(USN__USN__icontains=srch))
 			if match:
-				return render(request,'results.html',{'sr':match})
+				return render(request,'results.html',{'sr':match, 'mr':matchm})
 			else:
 				messages.error(request,'no result found')
 		else:
