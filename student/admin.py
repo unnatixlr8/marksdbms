@@ -3,5 +3,17 @@ from student.models import Students
 from student.models import Marks
 
 # Register your models here.
-admin.site.register(Students)
-admin.site.register(Marks)
+
+class StudentsAdmin(admin.ModelAdmin):
+	list_display = ('USN', 'Name', 'Department', 'Email', 'Phone')
+	search_fields = ['USN', 'Name','Email','Phone','Department']
+
+
+class MarksAdmin(admin.ModelAdmin):
+	list_display = ('USN', 'MAT', 'CHE', 'PCD','CED','ELN', 'CIV')
+	search_fields = ['USN__USN']
+
+
+admin.site.register(Students,StudentsAdmin)
+admin.site.register(Marks,MarksAdmin)
+admin.site.site_header = 'MarkX Admin Panel'

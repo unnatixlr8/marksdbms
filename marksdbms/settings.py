@@ -25,13 +25,12 @@ SECRET_KEY = '+coj$$#=%1$22w93gzmwxn9uk$4cs%!_9xtwkozatqoc!n$_na'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost','MarkX.pythonanywhere.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,5 +120,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
