@@ -1,0 +1,11 @@
+html, body {
+	height:100%;
+	width:100%;
+	font-family:'Space Mono', monospace;
+	color: #222;
+}
+
+.test{
+	font-family: 'Space Mono', Pacifico;
+	color:#222;
+}
