@@ -22,7 +22,7 @@ def results(request):
 
 	return render(request, 'results.html')
 
-def team(request):
-	return render(request,'team.html')
+def about(request):
+	return render(request,'about.html')
 
 

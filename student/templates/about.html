@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Team</title>
+	<title>About</title>
 	{% load static %}
 	
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -9,10 +9,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{% static "student/style.css" %}">
 	
 </head>
 <body>
+	<!-- NavBar -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"><img src="{% static "student/markx_nav1.png" %}" alt="Logo" class="img-responsive"></a>
@@ -24,11 +26,8 @@
 					<li class="nav-item">
 						<a class="nav-link"href="{% url 'results' %}">Home</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link"href="#">About</a>
-					</li>
 					<li class="nav-item active">
-						<a class="nav-link"href="#">Team</a>
+						<a class="nav-link"href="{% url 'about' %}">About</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link"href="{% url 'admin:index' %}">Admin</a>
@@ -38,6 +37,25 @@
 			</div>
 		</div>
 	</nav>
+	<!-- two column section about us -->
+	<br>
+	<div class="container-fluid padding">
+		<div class="row padding">
+			<div class="col-lg-6">
+				<h2>About MarkX</h2>
+				<p>MarkX is a web application made in Django (a web framework of Python) for managing the academic results of the students.</p>
+				<p>It can perform CRUD (Create, Read, Update and Delete) operations on the database. It uses SQLite as the backend RDBMS.</p>
+				<p>It features an easy to use admin interface to create and edit entries in the database.</p>
+				<br>
+			</div>
+			<div class="col-lg-6">
+				<img src="{% static 'student/markx_logo4.png' %}" class="img-fluid">
+			</div>
+		</div>
+		
+	</div>
+
+	<!-- Meet the team -->
 
 	<div class ="container-fluid padding">
 	<div class ="row welcome text-center">
@@ -47,6 +65,7 @@
 		</div>
 	</div>
 	</div>
+	<!-- Team cards -->
 
 	<div class="container-fluid padding">
 		<div class="row padding">
@@ -72,9 +91,55 @@
 			</div>
 		</div>
 	</div>
-	<div class="test">
-		<p>Hello this should be in different font and in color red</p>
+	<!-- Technologies used -->
+	<br>
+
+	<div class="container-fluid padding">
+		<div class="row text-center padding">
+			<div class="col-12">
+				<h2 class="display-8">Technologies used</h2>
+				<hr>
+			</div>
+		</div>
 	</div>
+		<div class="container-fluid padding">
+			<div class="row text-center padding">
+				<div class="col-sm-6 col-md-3">
+					<a href="https://www.djangoproject.com/" target="_blank"><i class="fab fa-python fa-7x" style="color:#ffde57"></i></a>
+					<h4>Django with Python</h4>
+				</div>
+				<div class="col-sm-6 col-md-3">
+					<a href="https://www.sqlite.org/index.html" target="_blank"><i class="fas fa-database fa-7x" style="color:#007cd1"></i></a>
+					<h4>SQLite</h4>
+				</div>
+				<div class="col-sm-6 col-md-3">
+					<a href="https://github.com/" target="_blank"><i class="fab fa-github fa-7x" style="color:#333"></i></a>
+					<h4>Github</h4>
+				</div>
+				<div class="col-sm-6 col-md-3">
+					<a href="https://slack.com/" target="_blank"><i class="fab fa-slack fa-7x" style="color:#6ecadc"></i></a>
+					<h4>Slack</h4>
+				</div>
+				<div class="col-sm-6 col-md-3">
+					<a href="https://git-scm.com/" target="_blank"><i class="fab fa-git fa-7x" style="color:#333"></i></a>
+					<h4>Git</h4>
+				</div>
+				<div class="col-sm-6 col-md-3">
+					<a href="https://www.w3.org/html/" target="_blank"><i class="fab fa-html5 fa-7x" style="color:#e34f26"></i></a>
+					<h4>HTML</h4>
+				</div>
+				<div class="col-sm-6 col-md-3">
+					<a href="https://www.w3.org/Style/CSS/" target="_blank"><i class="fab fa-css3-alt fa-7x" style="color:#1680C0"></i></a>
+					<h4>CSS</h4>
+				</div>
+				<div class="col-sm-6 col-md-3">
+					<a href="https://stackoverflow.com/" target="_blank"><i class="fab fa-stack-overflow fa-7x" style="color:#f48024"></i></a>
+					<h4>Stack Overflow</h4>
+				</div>
+			</div>
+		</div>
+		
+<br>
 	<footer>
 		<div class="container-fluid padding">
 			<div class="row text-center">
