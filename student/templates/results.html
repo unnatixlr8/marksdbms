@@ -32,26 +32,28 @@
 						<a class="nav-link"href="{% url 'admin:index' %}">Admin</a>
 					</li>
 
-
 				</ul>
 			</div>
 		</div>
 	</nav>
 
+
+
+
+
+
 	<div class="container-fluid padding">
-		<div class="row padding">
-		<div class="col-lg-4 col-lg-offset-4" >
-			<img src="{% static "student/markx_logo4.png" %}" alt="logo" class="img-responsive">
-			
-		</div>
+		<div class="row welcome text-center">
+			<div class="col-12">
+				<h1 class="display-3">Search Your Result</h1>
+			</div>
 		</div>
 	</div>
+		
 
+	<!-- old form -->
 
-
-
-	<div class="container-fluid padding">
-		<h1>Search Student's Result</h1>
+	<!-- <div class="container-fluid padding">
 		<form method="post" action="{% url 'results' %}">
 			{% csrf_token %}
 			<div class ="form-group">
@@ -64,7 +66,39 @@
 			</div>
 
 		</form><br><br>
-		
+</div>		-->
+
+		<!-- new form -->
+
+<div class="container padding">
+    <br/>
+	<div class="row justify-content-center padding">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form class="card card-sm" method="post" action="{% url 'results' %}">
+                            	{% csrf_token %}
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" type="text"name="srh" placeholder="Enter USN">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+</div>
+
+
+		<!-- tables -->
+
 	<div>
 		{% if messages %}
 		<ul class="messages">
