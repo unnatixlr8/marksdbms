@@ -1,4 +1,4 @@
-# marksdbms
+# MarkX (marksdbms)
 A marks management web application made in Django.
 
 
@@ -11,6 +11,8 @@ install python virtual environment.
 install django version 2.1.2
 
 activate python venv
+
+do a git pull of this repository.
 
 python manage.py runserver
 
