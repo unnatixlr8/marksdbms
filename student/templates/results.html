@@ -2,11 +2,58 @@
 <html>
 <head>
 	<title>Results</title>
+	{% load static %}
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static "student/style.css" %}">
+	
+
 </head>
 <body>
-	<div class="container">
-		<h1>Search Student's Result</h1>
+	<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"><img src="{% static "student/markx_nav1.png" %}" alt="Logo" class="img-responsive"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link"href="{% url 'results' %}">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link"href="{% url 'about' %}">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link"href="{% url 'admin:index' %}">Admin</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+
+
+
+
+	<div class="container-fluid padding">
+		<div class="row welcome text-center">
+			<div class="col-12">
+				<h1 class="display-3">Search Your Result</h1>
+			</div>
+		</div>
+	</div>
+		
+
+	<!-- old form -->
+
+	<!-- <div class="container-fluid padding">
 		<form method="post" action="{% url 'results' %}">
 			{% csrf_token %}
 			<div class ="form-group">
@@ -19,8 +66,42 @@
 			</div>
 
 		</form><br><br>
-		
-	<div>
+</div>		-->
+
+		<!-- new form -->
+
+<div class="container padding">
+    <br/>
+	<div class="row justify-content-center padding">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form class="card card-sm" method="post" action="{% url 'results' %}">
+                            	{% csrf_token %}
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>
+                                    </div> &nbsp;
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" type="text"name="srh" placeholder="Enter USN">
+                                    </div>
+                                    &nbsp;
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-warning" type="submit">Search</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+</div>
+<br>
+
+		<!-- tables -->
+
+	<div class="container padding">
+		<div class="row padding"></div>
 		{% if messages %}
 		<ul class="messages">
 			{% for k in messages %}
@@ -28,73 +109,102 @@
 			{% endfor %}
 		</ul>
 		{% endif %}
+		</div>
 	</div><br>
-	<div style="color:blue">
+
+
+	<div class="container padding">
+		<div class="row padding">
 		{% if sr %}
 			{% for k in sr %}
-			<table border="0px" width="300px">
+			<table class ="table table-borderless">
+				<tbody>
 				<tr>
-					<td>Name : </td>
+					<th scope="row">Name : </th>
 					<td>{{ k.Name }}</td>
 				</tr>
 				<tr>
-					<td>USN : </td>
+					<th scope="row">USN : </th>
 					<td>{{ k.USN }}</td>
 				</tr>
 				<tr>
-					<td>Department : </td>
+					<th scope="row">Department : </th>
 					<td>{{ k.Department }}</td>
 				</tr>
 				<tr>
-					<td>email : </td>
+					<th scope="row">email : </th>
 					<td>{{ k.Email }}</td>
 				</tr>
 				<tr>
-					<td>Phone : </td>
+					<th scope="row">Phone : </th>
 					<td>{{ k.Phone }}</td>
 				</tr>
-				</table>
+				</tbody>
+			</table>
 				{% endfor %}
 		{% endif %}
 			<br>
 			<br>
-			<hr>
+		</div>
+	</div>
+	<hr>
+	
+	<div class="container padding">
+		<div class="row padding">
 			{% if sr %}
 				{% for m in mr %}
-			<table border="2px" width="500px">
-				<tr>
-					<td>Engineering Mathematics 1 : </td>
-					<td>{{ m.MAT}} </td>
-				</tr>
-				<tr>
-					<td> Engineering Chemistry : </td>
-					<td>{{ m.CHE}} </td>
-				</tr>
-				<tr>
-					<td>Programming in C : </td>
-					<td>{{ m.PCD}} </td>
-				</tr>
-				<tr>
-					<td>Computer Aided Design : </td>
-					<td>{{ m.CED}} </td>
-				</tr>
-				<tr>
-					<td>Basic Electronics : </td>
-					<td>{{ m.ELN}} </td>
-				</tr>
-				<tr>
-					<td>Environmental Studies : </td>
-					<td>{{ m.CIV}} </td>
-				</tr>
-					
+			<table class="table table-striped">
+				<thead>
+					<tr class="table-warning">
+						<th scope="col">Subject Name</th>
+						<th scope="col">Marks</th>
+					<tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">Engineering Mathematics 1 : </th>
+						<td>{{ m.MAT}} </td>
+					</tr>
+					<tr>
+						<th scope="row"> Engineering Chemistry : </th>
+						<td>{{ m.CHE}} </td>
+					</tr>
+					<tr>
+						<th scope="row">Programming in C : </th>
+						<td>{{ m.PCD}} </td>
+					</tr>
+					<tr>
+						<th scope="row">Computer Aided Design : </th>
+						<td>{{ m.CED}} </td>
+					</tr>
+					<tr>
+						<th scope="row">Basic Electronics : </th>
+						<td>{{ m.ELN}} </td>
+					</tr>
+					<tr>
+						<th scope="row">Environmental Studies : </th>
+						<td>{{ m.CIV}} </td>
+					</tr>
+			</tbody>
 			</table>
 				{% endfor %}
 			{% endif %}
+		</div>
+	</div>
+	<br>
+	<footer>
+		<div class="container-fluid padding">
+			<div class="row text-center">
+				<div class="col-12">
+					<hr class="light">
+					<h5>&copy; MarkX </h5>
+					<p>Unnati Gupta, Tejaswini CA</p>
+				</div>
+			</div>
 			
-	</div>
-	
-
-	</div>
+		</div>
+	</footer>
+			
 
 </body>
 </html>

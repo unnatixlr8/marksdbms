@@ -22,4 +22,7 @@ def results(request):
 
 	return render(request, 'results.html')
 
+def about(request):
+	return render(request,'about.html')
+
 
