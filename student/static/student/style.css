@@ -19,3 +19,9 @@ html, body {
     outline: none;
     box-shadow: none;
 }
+
+@media print {
+  .d-print-none {
+    display: none !important;
+  }
+}
