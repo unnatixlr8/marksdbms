@@ -10,6 +10,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="{% static "student/style.css" %}">
 	
 
@@ -17,7 +18,7 @@
 <body>
 	<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><img src="{% static "student/markx_nav1.png" %}" alt="Logo" class="img-responsive"></a>
+			<a class="navbar-brand" href="#"><img src="{% static "student/markx_nav1.png" %}" alt="MarkX" class="img-responsive"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -148,7 +149,6 @@
 			<br>
 		</div>
 	</div>
-	<hr>
 	
 	<div class="container padding">
 		<div class="row padding">
@@ -188,10 +188,22 @@
 					</tr>
 			</tbody>
 			</table>
+			<br>
+			<!-- print button -->
+			<div class="container padding">
+				<div class="row well text-center padding">
+					<div class="col-12">
+						<button class="btn btn-warning d-print-none" id="printButton" onclick="javascript:window.print()"><span aria-hidden="true"><i class="fas fa-print"></i></span>&nbsp;Print</button>
+
+					</div>
+				</div>
+			</div>
 				{% endfor %}
 			{% endif %}
 		</div>
 	</div>
+
+
 	<br>
 	<footer>
 		<div class="container-fluid padding">
