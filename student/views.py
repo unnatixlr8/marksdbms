@@ -11,12 +11,12 @@ def results(request):
 		srch = request.POST['srh']
 
 		if srch:
-			match = Students.objects.filter(Q(USN__icontains=srch))
-			matchm = Marks.objects.filter(Q(USN__USN__icontains=srch))
+			match = Students.objects.filter(Q(USN__iexact=srch))
+			matchm = Marks.objects.filter(Q(USN__USN__iexact=srch))
 			
 
 			if match:
-				total = Marks.objects.filter(Q(USN__USN__icontains=srch)).annotate(totalMarks=Sum(F('MAT')+ F('CHE')+F('PCD')+F('CED')+F('ELN')+F('CIV')))
+				total = Marks.objects.filter(Q(USN__USN__iexact=srch)).annotate(totalMarks=Sum(F('MAT')+ F('CHE')+F('PCD')+F('CED')+F('ELN')+F('CIV')))
 				for i in total:
 					tot = i.totalMarks
 					per = i.totalMarks / 600.00 * 100
@@ -24,7 +24,7 @@ def results(request):
 
 				return render(request,'results.html',{'sr':match, 'mr':matchm,'tr':total,'per':per,'tot':tot})
 			else:
-				messages.error(request,'no result found')
+				messages.error(request,'No result found')
 		else:
 			return HttpResponseRedirect(reverse('results'))
 
