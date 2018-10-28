@@ -15,7 +15,7 @@ def results(request):
 			matchm = Marks.objects.filter(Q(USN__USN__iexact=srch))
 			
 
-			if match:
+			if match and matchm:
 				total = Marks.objects.filter(Q(USN__USN__iexact=srch)).annotate(totalMarks=Sum(F('MAT')+ F('CHE')+F('PCD')+F('CED')+F('ELN')+F('CIV')))
 				for i in total:
 					tot = i.totalMarks
