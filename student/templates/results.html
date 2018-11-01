@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="{% static "student/style.css" %}">
+	<link rel="shortcut icon" href="{% static "student/favicon.ico" %}">
 	
 
 </head>
@@ -107,7 +108,9 @@
 		{% if messages %}
 		<ul class="messages">
 			{% for k in messages %}
-			<li style="color: red">{{ k }}</li>
+			<div class="alert alert-danger">
+  				<strong>Result not found</strong>
+			</div>
 			{% endfor %}
 		</ul>
 		{% endif %}
