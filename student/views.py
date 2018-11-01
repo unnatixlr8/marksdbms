@@ -22,7 +22,7 @@ def results(request):
 					per = i.totalMarks / 600.00 * 100
 					per = (round(per,2))
 
-				return render(request,'results.html',{'sr':match, 'mr':matchm,'tr':total,'per':per,'tot':tot})
+				return render(request,'results.html',{'sr':match, 'mr':matchm, 'per':per,'tot':tot})
 			else:
 				messages.error(request,'No result found')
 		else:
