@@ -2,13 +2,24 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
+class Depart(models.Model):
+	class Meta:
+		verbose_name_plural = "Departments"	
+
+	DCode = models.CharField(max_length=3,primary_key=True)
+	DName = models.CharField(max_length=30)
+
+	def __str__(self):
+		return str(self.DCode)
+
+
 class Students(models.Model):
 	class Meta:
 		verbose_name_plural = "Students"
 
-	USN = models.IntegerField(primary_key=True)
+	USN = models.CharField(max_length=10,primary_key=True)
 	Name = models.CharField(max_length=20)
-	Department = models.CharField(max_length=4)
+	Department = models.ForeignKey(Depart, null=True, blank=True, on_delete=models.CASCADE)
 	Email = models.EmailField(null=True, blank=True)
 	Phone = models.CharField(max_length = 15,null=True, blank=True)
 
@@ -31,5 +42,7 @@ class Marks(models.Model):
 
 	def __str__(self):
 		return str(self.USN)
+
+
 
 

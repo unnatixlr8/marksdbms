@@ -85,7 +85,7 @@
                                     </div> &nbsp;
                                     <!--end of col-->
                                     <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="text"name="srh" placeholder="Enter USN">
+                                        <input class="form-control form-control-lg form-control-borderless" type="text"name="srh" placeholder="Enter USN (example: CS117)">
                                     </div>
                                     &nbsp;
                                     <!--end of col-->
@@ -134,10 +134,10 @@
 				</tr>
 				<tr>
 					<th scope="row">Department : </th>
-					<td>{{ k.Department }}</td>
+					<td>{{ k.Department.DName }}</td>
 				</tr>
 				<tr>
-					<th scope="row">email : </th>
+					<th scope="row">Email : </th>
 					<td>{{ k.Email }}</td>
 				</tr>
 				<tr>
