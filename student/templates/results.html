@@ -169,7 +169,7 @@
 						<th scope="row">Engineering Mathematics 1 : </th>
 						<td>{{ m.MAT}} </td>
 					</tr>
-					<tr>
+					<tr class="table-active">
 						<th scope="row"> Engineering Chemistry : </th>
 						<td>{{ m.CHE}} </td>
 					</tr>
@@ -177,7 +177,7 @@
 						<th scope="row">Programming in C : </th>
 						<td>{{ m.PCD}} </td>
 					</tr>
-					<tr>
+					<tr class="table-active">
 						<th scope="row">Computer Aided Design : </th>
 						<td>{{ m.CED}} </td>
 					</tr>
@@ -185,7 +185,7 @@
 						<th scope="row">Basic Electronics : </th>
 						<td>{{ m.ELN}} </td>
 					</tr>
-					<tr>
+					<tr class="table-active">
 						<th scope="row">Environmental Studies : </th>
 						<td>{{ m.CIV}} </td>
 					</tr>
@@ -193,14 +193,28 @@
 						<th scope="row"></th>
 						<td><br></td>
 					</tr>
-					<tr>
+					
+					{% if per < 35 %}
+					<tr class="table-danger">
 						<th scope="row">Total :</th>
 						<td>{{tot}}</td>
 					</tr>
-					<tr>
+					<tr class="table-danger">
 						<th scope="row">Percentage :</th>
 						<td>{{per}}</td>
 					</tr>
+					{% else%}
+					<tr class="table-success">
+						<th scope="row">Total :</th>
+						<td>{{tot}}</td>
+					</tr>
+					<tr class="table-success">
+						<th scope="row">Percentage :</th>
+						<td>{{per}}</td>
+					</tr>
+
+					{% endif %}
+
 			</tbody>
 			</table>
 			<br>
