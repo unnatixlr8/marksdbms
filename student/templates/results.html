@@ -16,7 +16,7 @@
 	
 
 </head>
-<body>
+<body class="Site">
 	<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="{% url 'results' %}"><img src="{% static "student/markx_nav1.png" %}" alt="MarkX" class="img-responsive"></a>
@@ -43,7 +43,7 @@
 
 
 
-
+<main class="Site-content">
 
 	<div class="container-fluid padding">
 		<div class="row welcome text-center">
@@ -162,7 +162,7 @@
 					<tr class="table-warning">
 						<th scope="col">Subject Name</th>
 						<th scope="col">Marks</th>
-					<tr>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -233,19 +233,18 @@
 	</div>
 
 
-	<br>
-	<footer>
-		<div class="container-fluid padding">
-			<div class="row text-center">
-				<div class="col-12">
-					<hr class="light">
-					<h5>&copy; MarkX </h5>
-					<p>Unnati Gupta, Tejaswini CA</p>
-				</div>
-			</div>
-			
-		</div>
-	</footer>
+	<br><br>
+	</main>
+
+	<footer class="footer">
+      <div class="container-fluid padding">
+      	<div class="row text-center">
+      		<div class="col-12">
+        <span class="text-muted">&copy;2018 <strong> MarkX </strong> | Unnati Gupta, Tejaswini CA</span>
+    		</div>
+      	</div>
+  	</div>
+    </footer>
 			
 
 </body>

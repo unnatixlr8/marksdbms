@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static "student/style.css" %}">
 	
 </head>
-<body>
+<body class="Site">
 	<!-- NavBar -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 		<div class="container-fluid">
@@ -37,6 +37,8 @@
 			</div>
 		</div>
 	</nav>
+
+	<main class="Site-content">
 	<!-- two column section about us -->
 	<br>
 	<div class="container-fluid padding">
@@ -49,7 +51,9 @@
 				<br>
 			</div>
 			<div class="col-lg-6">
+				<div class="col-12">
 				<img src="{% static 'student/markx_logo4.png' %}" class="img-fluid">
+				</div>
 			</div>
 		</div>
 		
@@ -139,18 +143,16 @@
 			</div>
 		</div>
 		
-<br>
-	<footer>
-		<div class="container-fluid padding">
-			<div class="row text-center">
-				<div class="col-12">
-					<hr class="light">
-					<h5>&copy; MarkX </h5>
-					<p>Unnati Gupta, Tejaswini CA</p>
-				</div>
-			</div>
-			
-		</div>
-	</footer>
+<br><br>
+</main>
+	<footer class="footer">
+      <div class="container-fluid padding">
+      	<div class="row text-center">
+      		<div class="col-12">
+        <span class="text-muted">&copy;2018 <strong> MarkX </strong> | Unnati Gupta, Tejaswini CA</span>
+    		</div>
+      	</div>
+  	</div>
+    </footer>
 </body>
 </html>
