@@ -24,5 +24,6 @@ urlpatterns = [
     #path('login/', include('django.contrib.auth.urls')),
     path('', views.results, name="results"),
     path('about/',views.about, name="about"),
+    path('printJSON/',views.printJSON,name="printJSON"),
     #path('admin/logout/',views.results, name = 'home')
 ]
