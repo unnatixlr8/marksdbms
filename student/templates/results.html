@@ -54,22 +54,6 @@
 	</div>
 		
 
-	<!-- old form -->
-
-	<!-- <div class="container-fluid padding">
-		<form method="post" action="{% url 'results' %}">
-			{% csrf_token %}
-			<div class ="form-group">
-				<div class="col-lg-5">
-					<input type="text" name="srh" class="form-control" placeholder="Enter USN">
-				</div>
-				<label class="col-lg-2">
-					<button type="submit" class="btn btn-danger">Search</button>
-				</label>
-			</div>
-
-		</form><br><br>
-</div>		-->
 
 		<!-- new form -->
 
@@ -85,7 +69,7 @@
                                     </div> &nbsp;
                                     <!--end of col-->
                                     <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="text"name="srh" placeholder="Enter USN (example: CS117)">
+                                        <input class="form-control form-control-lg form-control-borderless" type="text"name="srh" placeholder="Enter USN (example: 16CS117)">
                                     </div>
                                     &nbsp;
                                     <!--end of col-->
@@ -219,14 +203,21 @@
 			</table>
 			<br>
 			<!-- print button -->
-			<div class="container padding">
-				<div class="row well text-center padding">
-					<div class="col-12">
-						<button class="btn btn-warning d-print-none" id="printButton" onclick="javascript:window.print()"><span aria-hidden="true"><i class="fas fa-print"></i></span>&nbsp;Print</button>
+			<div class="col-12">
+			<div class="flex">
+				
+				<button class="btn btn-warning d-print-none flex-item button" id="printButton" onclick="javascript:window.print()"><span aria-hidden="true"><i class="fas fa-print"></i></span>&nbsp;Print</button>
+					
+			<form class="hidden flex-item" method="GET" action="{% url 'printJSON' %}">
+				{% csrf_token %}
 
-					</div>
-				</div>
-			</div>
+                  <!--<input type="hidden" name="json_data" value="{{m.USN}}" >-->
+
+						<button class="btn btn-warning d-print-none button" type="submit" value="{{m.USN}}" name="json_data"><span aria-hidden="true"><i class="fas fa-file-download"></i></span>&nbsp;Export JSON</button>
+
+			</form>
+	</div>
+</div>
 				{% endfor %}
 			{% endif %}
 		</div>

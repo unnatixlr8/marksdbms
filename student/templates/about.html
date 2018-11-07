@@ -12,13 +12,13 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{% static "student/style.css" %}">
 	<link rel="shortcut icon" href="{% static "student/favicon.ico" %}">
-	
+
 </head>
 <body class="Site">
 	<!-- NavBar -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><img src="{% static "student/markx_nav1.png" %}" alt="Logo" class="img-responsive"></a>
+			<a class="navbar-brand" href="{% url 'results' %}"><img src="{% static "student/markx_nav1.png" %}" alt="Logo" class="img-responsive"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 				<span class="navbar-toggler-icon"></span>
 			</button>
