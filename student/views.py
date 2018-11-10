@@ -35,6 +35,7 @@ def results(request):
 
 	return render(request, 'results.html')
 
+
 def about(request):
 	return render(request,'about.html')
 
@@ -44,11 +45,12 @@ def printJSON(request):
 		json_data = request.GET['json_data']
 		if json_data:
 			#print(json_data)
-			query1 = Students.objects.filter(Q(USN__iexact=json_data))
-			query2 = Marks.objects.filter(Q(USN__USN__iexact=json_data))
-			json_student = serialize('json', query1)
-			json_student = json_student + serialize('json',query2)
-
+			query1 = Students.objects.filter(Q(USN__iexact=json_data)).values('USN','Name','Department','Email','Phone')
+			query2 = Marks.objects.filter(Q(USN__USN__iexact=json_data)).values('MAT','CHE','PCD','CED','ELN','CIV')
+			#json_student = serialize('json', query1)
+			#json_student = json_student + serialize('json',query2)
+			json_student = json.dumps(list(query1), cls=DjangoJSONEncoder)
+			json_student = json_student + json.dumps(list(query2), cls=DjangoJSONEncoder)
 			#print(json_student)
 			response = JsonResponse(json_student,safe=False,content_type='application/json')
 			response['Content-Disposition'] = 'attachment; filename=%s.json' %json_data
@@ -74,7 +76,10 @@ def sendSMS(request):
 			#resp = actualSendSMS('2AQn1u6DJg4-ampt4ZBau1xgve3MOYe4Vb6zRpzMx1','8873333559','hello unnati','TXTLCL')
 			resp = actualSendSMS(settings.TEXTLOCAL_API,"'"+phone+"'",marksData,'TXTLCL')
 			print (resp)
-	return HttpResponse(status=204)
+			json_print = json.loads(resp.decode())
+	#return HttpResponse(status=204)
+	#return render(request,'results.html',{'smsResp': json_print})
+	return JsonResponse(json_print,safe=False,content_type='application/json')
 
 
 def actualSendSMS(apikey, numbers, message, sender):
