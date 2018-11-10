@@ -216,6 +216,22 @@
 						<button class="btn btn-warning d-print-none button" type="submit" value="{{m.USN}}" name="json_data"><span aria-hidden="true"><i class="fas fa-file-download"></i></span>&nbsp;Export JSON</button>
 
 			</form>
+			{% if sr %}
+				{% for k in sr %}
+			<!-- send sms -->
+			<form class="hidden flex-item" method="POST" action="{% url 'sendSMS' %}">
+				{% csrf_token %}
+
+                  <input type="hidden" name="json_data" value="{{m.USN}}" >
+                  <input type="hidden" name="phone" value="{{k.Phone}}" >
+
+
+						<button class="btn btn-warning d-print-none button" type="submit" name="sms"><span aria-hidden="true"><i class="fas fa-envelope"></i></span>&nbsp;Send SMS</button>
+
+			</form>
+
+				{% endfor %}
+			{% endif %}
 	</div>
 </div>
 				{% endfor %}
@@ -224,7 +240,7 @@
 	</div>
 
 
-	<br><br>
+	<br>
 	</main>
 
 	<footer class="footer">

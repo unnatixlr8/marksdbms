@@ -25,5 +25,6 @@ urlpatterns = [
     path('', views.results, name="results"),
     path('about/',views.about, name="about"),
     path('printJSON/',views.printJSON,name="printJSON"),
+    path('sendSMS/', views.sendSMS, name="sendSMS"),
     #path('admin/logout/',views.results, name = 'home')
 ]
