@@ -25,6 +25,8 @@ SECRET_KEY = '+coj$$#=%1$22w93gzmwxn9uk$4cs%!_9xtwkozatqoc!n$_na'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+TEXTLOCAL_API = '2AQn1u6DJg4-ampt4ZBau1xgve3MOYe4Vb6zRpzMx1'
+
 ALLOWED_HOSTS = ['127.0.0.1','localhost','MarkX.pythonanywhere.com']
 
 
