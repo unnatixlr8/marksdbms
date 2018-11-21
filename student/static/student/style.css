@@ -10,7 +10,7 @@
 
 
 html, body {
-	font-family:'Space Mono', Menlo;
+	font-family:'Space Mono', Menlo, Monospace, Consolas;
 	color: #222;
 }
 
