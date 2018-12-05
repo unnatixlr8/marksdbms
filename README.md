@@ -1,4 +1,5 @@
 # MarkX (marksdbms)
+Marks Report Card Generation Tool
 A marks management web application made in Django.
 
 
