@@ -3,21 +3,27 @@
 <head>
 	<title>About</title>
 	{% load static %}
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+	<script src="{% static "student/js/bootstrap.min.js" %}"></script>
+	<script src="{% static "student/popper/js/popper.min.js" %}"></script>
+	<script src="{% static "student/jquery/js/jquery-3.3.1.min.js" %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static "student/css/bootstrap.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "student/css/all.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "student/style.css" %}">
-	
+	<link rel="shortcut icon" href="{% static "student/favicon.ico" %}">
+
 </head>
-<body>
+<body class="Site">
 	<!-- NavBar -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><img src="{% static "student/markx_nav1.png" %}" alt="Logo" class="img-responsive"></a>
+			<a class="navbar-brand" href="{% url 'results' %}"><img src="{% static "student/markx_nav1.png" %}" alt="Logo" class="img-responsive"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -37,6 +43,8 @@
 			</div>
 		</div>
 	</nav>
+
+	<main class="Site-content">
 	<!-- two column section about us -->
 	<br>
 	<div class="container-fluid padding">
@@ -49,7 +57,9 @@
 				<br>
 			</div>
 			<div class="col-lg-6">
+				<div class="col-12">
 				<img src="{% static 'student/markx_logo4.png' %}" class="img-fluid">
+				</div>
 			</div>
 		</div>
 		
@@ -71,7 +81,7 @@
 		<div class="row padding">
 			<div class="col-md-6">
 				<div class="card">
-					<img class="card-img-top" src="{% static 'student/unnati2.jpg' %}">
+					<img class="card-img-top" src="{% static 'student/unnati3.jpg' %}">
 					<div class="card-body">
 						<h4 class="card-title">Unnati Gupta</h4>
 						<p class="card-text">Lead Programmer. Currently working on Django Projects.</p>
@@ -81,7 +91,7 @@
 			</div>
 				<div class="col-md-6">
 				<div class="card">
-					<img class="card-img-top" src="{% static 'student/unnati2.jpg' %}">
+					<img class="card-img-top" src="{% static 'student/teju1.jpg' %}">
 					<div class="card-body">
 						<h4 class="card-title">Tejaswini CA</h4>
 						<p class="card-text">Project Manager. Currently working on her academics.</p>
@@ -139,18 +149,16 @@
 			</div>
 		</div>
 		
-<br>
-	<footer>
-		<div class="container-fluid padding">
-			<div class="row text-center">
-				<div class="col-12">
-					<hr class="light">
-					<h5>&copy; MarkX </h5>
-					<p>Unnati Gupta, Tejaswini CA</p>
-				</div>
-			</div>
-			
-		</div>
-	</footer>
+<br><br>
+</main>
+	<footer class="footer">
+      <div class="container-fluid padding">
+      	<div class="row text-center">
+      		<div class="col-12">
+        <span class="text-muted">&copy;2018 <strong> MarkX </strong> | Unnati Gupta, Tejaswini CA</span>
+    		</div>
+      	</div>
+  	</div>
+    </footer>
 </body>
 </html>

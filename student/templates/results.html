@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Results</title>
+	<title>MarkX Result</title>
 	{% load static %}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="{% static "student/js/bootstrap.min.js" %}"></script>
+	<script src="{% static "student/popper/js/popper.min.js" %}"></script>
+	<script src="{% static "student/jquery/js/jquery-3.3.1.min.js" %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static "student/css/bootstrap.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "student/css/all.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "student/style.css" %}">
+	<link rel="shortcut icon" href="{% static "student/favicon.ico" %}">
 	
 
 </head>
-<body>
+<body class="Site">
 	<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><img src="{% static "student/markx_nav1.png" %}" alt="Logo" class="img-responsive"></a>
+			<a class="navbar-brand" href="{% url 'results' %}"><img src="{% static "student/markx_nav1.png" %}" alt="MarkX" class="img-responsive"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 				<span class="navbar-toggler-icon"></span>
 			</button>
+			<div>
+				<h3>Marks Report Card Generation Tool</h3>
+			</div>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
@@ -40,7 +51,7 @@
 
 
 
-
+<main class="Site-content">
 
 	<div class="container-fluid padding">
 		<div class="row welcome text-center">
@@ -51,22 +62,6 @@
 	</div>
 		
 
-	<!-- old form -->
-
-	<!-- <div class="container-fluid padding">
-		<form method="post" action="{% url 'results' %}">
-			{% csrf_token %}
-			<div class ="form-group">
-				<div class="col-lg-5">
-					<input type="text" name="srh" class="form-control" placeholder="Enter USN">
-				</div>
-				<label class="col-lg-2">
-					<button type="submit" class="btn btn-danger">Search</button>
-				</label>
-			</div>
-
-		</form><br><br>
-</div>		-->
 
 		<!-- new form -->
 
@@ -82,7 +77,7 @@
                                     </div> &nbsp;
                                     <!--end of col-->
                                     <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="text"name="srh" placeholder="Enter USN">
+                                        <input class="form-control form-control-lg form-control-borderless" type="text"name="srh" placeholder="Enter USN (example: 16CS117)">
                                     </div>
                                     &nbsp;
                                     <!--end of col-->
@@ -105,7 +100,9 @@
 		{% if messages %}
 		<ul class="messages">
 			{% for k in messages %}
-			<li style="color: red">{{ k }}</li>
+			<div class="alert alert-danger">
+  				<strong>Result not found</strong>
+			</div>
 			{% endfor %}
 		</ul>
 		{% endif %}
@@ -129,10 +126,10 @@
 				</tr>
 				<tr>
 					<th scope="row">Department : </th>
-					<td>{{ k.Department }}</td>
+					<td>{{ k.Department.DName }}</td>
 				</tr>
 				<tr>
-					<th scope="row">email : </th>
+					<th scope="row">Email : </th>
 					<td>{{ k.Email }}</td>
 				</tr>
 				<tr>
@@ -147,7 +144,6 @@
 			<br>
 		</div>
 	</div>
-	<hr>
 	
 	<div class="container padding">
 		<div class="row padding">
@@ -158,14 +154,14 @@
 					<tr class="table-warning">
 						<th scope="col">Subject Name</th>
 						<th scope="col">Marks</th>
-					<tr>
+					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<th scope="row">Engineering Mathematics 1 : </th>
 						<td>{{ m.MAT}} </td>
 					</tr>
-					<tr>
+					<tr class="table-active">
 						<th scope="row"> Engineering Chemistry : </th>
 						<td>{{ m.CHE}} </td>
 					</tr>
@@ -173,7 +169,7 @@
 						<th scope="row">Programming in C : </th>
 						<td>{{ m.PCD}} </td>
 					</tr>
-					<tr>
+					<tr class="table-active">
 						<th scope="row">Computer Aided Design : </th>
 						<td>{{ m.CED}} </td>
 					</tr>
@@ -181,29 +177,89 @@
 						<th scope="row">Basic Electronics : </th>
 						<td>{{ m.ELN}} </td>
 					</tr>
-					<tr>
+					<tr class="table-active">
 						<th scope="row">Environmental Studies : </th>
 						<td>{{ m.CIV}} </td>
 					</tr>
+					<tr>
+						<th scope="row"></th>
+						<td><br></td>
+					</tr>
+					
+					{% if per < 35 %}
+					<tr class="table-danger">
+						<th scope="row">Total :</th>
+						<td>{{tot}}</td>
+					</tr>
+					<tr class="table-danger">
+						<th scope="row">Percentage :</th>
+						<td>{{per}}</td>
+					</tr>
+					{% else %}
+					<tr class="table-success">
+						<th scope="row">Total :</th>
+						<td>{{tot}}</td>
+					</tr>
+					<tr class="table-success">
+						<th scope="row">Percentage :</th>
+						<td>{{per}}</td>
+					</tr>
+
+					{% endif %}
+
 			</tbody>
 			</table>
+			<br>
+			<!-- print button -->
+			<div class="col-12">
+			<div class="flex">
+				
+				<button class="btn btn-warning d-print-none flex-item button" id="printButton" onclick="javascript:window.print()"><span aria-hidden="true"><i class="fas fa-print"></i></span>&nbsp;Print</button>
+					
+			<form class="hidden flex-item" method="GET" action="{% url 'printJSON' %}">
+				{% csrf_token %}
+
+                  <!--<input type="hidden" name="json_data" value="{{m.USN}}" >-->
+
+						<button class="btn btn-warning d-print-none button" type="submit" value="{{m.USN}}" name="json_data"><span aria-hidden="true"><i class="fas fa-file-download"></i></span>&nbsp;Export JSON</button>
+
+			</form>
+			{% if sr %}
+				{% for k in sr %}
+			<!-- send sms -->
+			<form class="hidden flex-item" method="POST" action="{% url 'sendSMS' %}">
+				{% csrf_token %}
+
+                  <input type="hidden" name="json_data" value="{{m.USN}}" >
+                  <input type="hidden" name="phone" value="{{k.Phone}}" >
+
+
+						<button class="btn btn-warning d-print-none button" type="submit" name="sms"><span aria-hidden="true"><i class="fas fa-envelope"></i></span>&nbsp;Send SMS</button>
+			</form>
+
+				{% endfor %}
+			{% endif %}
+
+
+	</div>
+</div>
 				{% endfor %}
 			{% endif %}
 		</div>
 	</div>
+
 	<br>
-	<footer>
-		<div class="container-fluid padding">
-			<div class="row text-center">
-				<div class="col-12">
-					<hr class="light">
-					<h5>&copy; MarkX </h5>
-					<p>Unnati Gupta, Tejaswini CA</p>
-				</div>
-			</div>
-			
-		</div>
-	</footer>
+	</main>
+
+	<footer class="footer">
+      <div class="container-fluid padding">
+      	<div class="row text-center">
+      		<div class="col-12">
+        <span class="text-muted">&copy;2018 <strong> MarkX </strong> | Unnati Gupta, Tejaswini CA</span>
+    		</div>
+      	</div>
+  	</div>
+    </footer>
 			
 
 </body>
