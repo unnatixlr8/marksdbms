@@ -1,0 +1,1 @@
+CREATE TABLE "student_depart" ("DCode" varchar(3) NOT NULL PRIMARY KEY, "DName" varchar(30) NOT NULL);
